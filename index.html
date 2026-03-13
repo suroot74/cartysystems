@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carty Systems Consulting</title>
-  <meta name="description" content="Carty Systems Consulting helps organizations improve digital workflows, implement practical AI tools, and communicate what they do clearly." />
-  <style>
+<meta name="description" content="Carty Systems Consulting helps organizations improve workflows, automate repetitive work, implement practical AI tools, and communicate more clearly." />  <style>
     :root {
       --bg: #0b1020;
       --bg-alt: #121933;
@@ -370,6 +369,34 @@
       .button {
         width: 100%;
       }
+          .credibility-strip {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .credibility-item {
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .credibility-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    @media (max-width: 960px) {
+      .credibility-strip {
+        grid-template-columns: 1fr;
+      }
+    }
     }
   </style>
 </head>
@@ -383,12 +410,14 @@
           <small>Digital systems • AI workflows • business storytelling</small>
         </div>
       </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<nav class="nav-links" aria-label="Primary">
+  <a href="#services">Services</a>
+  <a href="#who">Who I work with</a>
+  <a href="#problems">Problems</a>
+  <a href="#approach">Approach</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
     </div>
   </header>
 
@@ -397,15 +426,30 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Helping Organizations Build Better Systems</div>
-          <h1>Work smarter. Communicate clearly. Fix what’s slowing you down.</h1>
+          <h1>Work smarter.<br />
+          Communicate clearly.<br />
+          Fix what’s slowing your team down.</h1>
           <p>
-            Carty Systems Consulting helps organizations untangle messy digital workflows,
-            implement practical AI tools, and communicate what they do more clearly.
+          Carty Systems Consulting helps organizations fix inefficient workflows, automate repetitive work, and turn scattered information into clear systems people actually use.
           </p>
           <p>
             From workflow diagnostics and automation to internal documentation and workforce storytelling,
             the focus is simple: reduce friction, save time, and create systems that actually support the work.
           </p>
+                    <div class="credibility-strip">
+            <div class="credibility-item">
+              <strong>25+ years of experience</strong>
+              Systems administration, IT leadership, and workflow improvement.
+            </div>
+            <div class="credibility-item">
+              <strong>Practical, usable solutions</strong>
+              Built around real teams, real tools, and day-to-day operations.
+            </div>
+            <div class="credibility-item">
+              <strong>Southwest Virginia based</strong>
+              Serving manufacturers, nonprofits, and regional organizations.
+            </div>
+          </div>
           <div class="cta-row">
             <a class="button button-primary" href="#contact">Start a conversation</a>
             <a class="button button-secondary" href="#services">View services</a>
@@ -415,15 +459,48 @@
         <aside class="hero-card" aria-label="Highlights">
           <h3>What this looks like in practice</h3>
           <ul class="check-list">
-            <li><span>✓</span><div>Review inefficient workflows and identify what can be simplified or automated.</div></li>
-            <li><span>✓</span><div>Use AI in practical ways to support reporting, documentation, summaries, and repeatable tasks.</div></li>
-            <li><span>✓</span><div>Develop clearer communication systems—from internal documentation and training videos to external storytelling—helping your organization share its mission and attract the right people.</div></li>
-            <li><span>✓</span><div>Turn audits into actionable roadmaps and implementation projects.</div></li>
-          </ul>
+            <li><span>✓</span><div>Simplify inefficient workflows and identify what can be automated.</div></li>
+            <li><span>✓</span><div>Use AI in practical ways for reporting, documentation, summaries, and repeatable tasks.</div></li>
+            <li><span>✓</span><div>Turn scattered information into clearer systems your team can actually use.</div></li>
+            <li><span>✓</span><div>Improve internal documentation, training, and external storytelling.</div></li>
+          </ul>+
         </aside>
       </div>
     </section>
+    <section id="who">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Who I work with</h2>
+            <p class="section-intro">
+              Carty Systems Consulting works with organizations that rely on complex workflows and need clearer systems, better information flow, and more practical communication.
+            </p>
+          </div>
+        </div>
 
+        <div class="two-col">
+          <div class="card">
+            <h3>Typical clients include</h3>
+            <ul class="service-list">
+              <li>Manufacturers</li>
+              <li>Small and mid-sized businesses</li>
+              <li>Nonprofits</li>
+              <li>Workforce and economic development organizations</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>This is a good fit when</h3>
+            <ul class="service-list">
+              <li>Your team is dealing with scattered information and disconnected tools</li>
+              <li>Too much time is spent on repetitive administrative work</li>
+              <li>Documentation is weak, outdated, or hard to maintain</li>
+              <li>You need clearer communication internally or externally</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="services">
       <div class="container">
         <div class="section-head">
@@ -486,7 +563,28 @@
         </div>
       </div>
     </section>
+    <section id="problems">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Common problems I help solve</h2>
+            <p class="section-intro">
+              Organizations usually reach out when work is getting slowed down by friction, repetition, or unclear systems.
+            </p>
+          </div>
+        </div>
 
+        <div class="card">
+          <ul class="check-list">
+            <li><span>✓</span><div>Staff spending hours assembling reports or summaries manually</div></li>
+            <li><span>✓</span><div>Important knowledge scattered across email, shared drives, documents, and multiple tools</div></li>
+            <li><span>✓</span><div>Meetings that produce notes but no usable documentation or follow-through</div></li>
+            <li><span>✓</span><div>Repetitive administrative tasks that could be simplified or automated</div></li>
+            <li><span>✓</span><div>Difficulty explaining clearly what the organization does to employees, partners, or recruits</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <section id="approach">
       <div class="container">
         <div class="section-head">
@@ -520,12 +618,17 @@
         </div>
         <div class="about-box card">
           <p>
-            William Carty offers over 25 years of expertise in systems administration, network management, and IT leadership, complemented by hands-on experience in audio, video, voiceover, and organizational communication.          </p>
-          <p>
-            His consulting practice centers on helping organizations simplify complex digital systems, implement practical automation, and strengthen both internal and external communication.
+            William Carty brings over 25 years of experience in systems administration, network management, and IT leadership.
           </p>
           <p>
-            Based in Southwest Virginia, Carty Systems Consulting partners with manufacturers, small businesses, nonprofits, and regional organizations seeking practical, results-driven improvements.          </p>
+            Throughout his career, he has helped organizations solve practical problems that slow teams down: inefficient workflows, disconnected tools, weak documentation, and unclear communication.
+          </p>
+          <p>
+            In addition to deep technical experience, he brings hands-on expertise in audio, video, voiceover, and organizational storytelling—allowing Carty Systems Consulting to work at the intersection of technology, operations, and communication.
+          </p>
+          <p>
+            Based in Southwest Virginia, Carty Systems Consulting partners with manufacturers, small businesses, nonprofits, and regional organizations seeking practical, results-driven improvements.
+          </p>
         </div>
       </div>
     </section>
@@ -544,16 +647,15 @@
         </div>
         <aside class="contact-card">
           <h3>Contact</h3>
-          <p class="muted">Replace the placeholders below with your preferred contact details before publishing.</p>
-          <ul class="contact-points">
-            <li><strong>Email:</strong> <a href="#">william@cartysystems.com</a></li>
-            <li><strong>Website:</strong> <a href="https://cartysystems.com">cartysystems.com</a></li>
-            <li><strong>Location:</strong> Bristol, Virginia</li>
-          </ul>
-          <div class="cta-row">
-            <a class="button button-primary" href="#">Email now</a>
-          </div>
-        </aside>
+          <p class="muted">Reach out to start a conversation about diagnostics, implementation, or a scoped consulting project.</p>
+<ul class="contact-points">
+  <li><strong>Email:</strong> <a href="mailto:william@cartysystems.com">william@cartysystems.com</a></li>
+  <li><strong>Website:</strong> <a href="https://cartysystems.com" target="_blank" rel="noopener noreferrer">cartysystems.com</a></li>
+  <li><strong>Location:</strong> Bristol, Virginia</li>
+</ul>
+<div class="cta-row">
+  <a class="button button-primary" href="mailto:william@cartysystems.com">Email now</a>
+</div>        </aside>
       </div>
     </section>
   </main>
