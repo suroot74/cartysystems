@@ -1,695 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carty Systems Consulting</title>
-<meta name="description" content="Carty Systems Consulting helps organizations improve workflows, automate repetitive work, implement practical AI tools, and communicate more clearly." />  <style>
-    :root {
-      --bg: #0b1020;
-      --bg-alt: #121933;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-border: rgba(255, 255, 255, 0.12);
-      --text: #edf2ff;
-      --muted: #b6c0df;
-      --accent: #7cc7ff;
-      --accent-2: #96f0d0;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --max: 1120px;
-      --radius: 20px;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="I maintain a restricted list of private clients. I secure their records, organize their history, and ensure they are never locked out of their own lives." />
+    <title>William Carty | Digital Privacy & Continuity</title>
+    <style>
+        :root {
+            --paper: #f6f1e8;
+            --paper-deep: #ebe3d5;
+            --ink: #171b18;
+            --muted: #626861;
+            --rule: #cfc4b5;
+            --forest: #1f352b;
+            --slate: #2f3736;
+            --gold: #9a7b45;
+            --max-width: 920px;
+        }
 
-    * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
-    html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(124, 199, 255, 0.16), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(150, 240, 208, 0.12), transparent 32%),
-        linear-gradient(180deg, #0a1020 0%, #0e152a 50%, #09101f 100%);
-      line-height: 1.6;
-    }
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(31, 53, 43, 0.08), transparent 34rem),
+                linear-gradient(135deg, rgba(23, 27, 24, 0.035) 25%, transparent 25%) 0 0 / 9px 9px,
+                var(--paper);
+            font-family: "Inter", "Avenir Next", "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-    a { color: inherit; text-decoration: none; }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image:
+                linear-gradient(90deg, rgba(23, 27, 24, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(23, 27, 24, 0.04) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, black, transparent 82%);
+        }
 
-    .container {
-      width: min(calc(100% - 2rem), var(--max));
-      margin: 0 auto;
-    }
+        .page {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 72px 32px 56px;
+        }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(9, 16, 31, 0.7);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+        .document {
+            position: relative;
+            background: rgba(246, 241, 232, 0.86);
+            border: 1px solid var(--rule);
+            box-shadow: 0 24px 80px rgba(23, 27, 24, 0.12);
+            padding: 56px;
+        }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
-      gap: 1rem;
-    }
+        .document::before {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(154, 123, 69, 0.28);
+            pointer-events: none;
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
+        header,
+        main,
+        footer {
+            position: relative;
+            z-index: 1;
+        }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(124, 199, 255, 0.22), rgba(150, 240, 208, 0.18));
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: var(--shadow);
-      font-size: 0.92rem;
-    }
+        .masthead {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 32px;
+            align-items: start;
+            padding-bottom: 38px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 56px;
+        }
 
-    .brand-text small {
-      display: block;
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+        .eyebrow,
+        .classification,
+        h2,
+        th {
+            font-size: 0.74rem;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1.15rem;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
+        .eyebrow {
+            color: var(--gold);
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
 
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-    }
+        h1,
+        .lede,
+        blockquote {
+            font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+        }
 
-    .hero {
-      padding: 5.5rem 0 4.5rem;
-    }
+        h1 {
+            margin: 0;
+            max-width: 680px;
+            color: var(--forest);
+            font-size: clamp(2.7rem, 7vw, 5.35rem);
+            font-weight: 400;
+            line-height: 0.96;
+            letter-spacing: -0.055em;
+        }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
-      align-items: center;
-    }
+        .classification {
+            min-width: 210px;
+            color: var(--muted);
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.5rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 1rem;
-    }
+        .classification strong {
+            display: block;
+            color: var(--ink);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
 
-    h1, h2, h3 {
-      line-height: 1.1;
-      margin: 0 0 1rem;
-      letter-spacing: -0.03em;
-    }
+        .lede {
+            max-width: 780px;
+            margin: 0 0 32px;
+            color: var(--ink);
+            font-size: clamp(1.45rem, 3vw, 2.15rem);
+            line-height: 1.28;
+            letter-spacing: -0.018em;
+        }
 
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.7rem);
-      max-width: 12ch;
-    }
+        .positioning {
+            display: grid;
+            margin-bottom: 26px;
+        }
 
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-    }
+        p {
+            margin: 0 0 24px;
+            font-size: 1rem;
+        }
 
-    h3 {
-      font-size: 1.25rem;
-    }
+        .aside-card {
+            align-self: start;
+            background: var(--forest);
+            color: #f8f3ea;
+            padding: 28px;
+            border: 1px solid rgba(154, 123, 69, 0.5);
+        }
 
-    .hero p,
-    .section-intro,
-    .muted {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 65ch;
-    }
+        .aside-card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
 
-    .cta-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
+        .aside-card .label {
+            display: block;
+            margin-bottom: 18px;
+            color: #d8c291;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.95rem 1.25rem;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-    }
+        h2 {
+            margin: 0 0 24px;
+            padding-top: 28px;
+            border-top: 1px solid var(--rule);
+            color: var(--forest);
+            font-weight: 800;
+        }
 
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-1px);
-    }
+        .ethics {
+            margin-bottom: 64px;
+        }
 
-    .button-primary {
-      color: #07111d;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: var(--shadow);
-    }
+        blockquote {
+            margin: 0;
+            padding: 8px 0 0 28px;
+            border-left: 2px solid var(--gold);
+            color: var(--slate);
+            font-size: 1.22rem;
+            line-height: 1.55;
+        }
 
-    .button-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text);
-    }
+        .deliverables {
+            margin-bottom: 64px;
+        }
 
-    .hero-card,
-    .card,
-    .quote,
-    .contact-card {
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 252, 246, 0.38);
+        }
 
-    .hero-card {
-      padding: 1.4rem;
-    }
+        th,
+        td {
+            vertical-align: top;
+            text-align: left;
+            border-bottom: 1px solid var(--rule);
+            padding: 18px 16px;
+        }
 
-    .hero-card h3 {
-      margin-bottom: 0.55rem;
-    }
+        th {
+            color: var(--muted);
+            font-weight: 800;
+        }
 
-    .check-list {
-      list-style: none;
-      margin: 1.25rem 0 0;
-      padding: 0;
-      display: grid;
-      gap: 0.85rem;
-    }
+        td:first-child {
+            width: 30%;
+            color: var(--forest);
+            font-weight: 800;
+        }
 
-    .check-list li {
-      display: grid;
-      grid-template-columns: 1.6rem 1fr;
-      gap: 0.75rem;
-      align-items: start;
-    }
+        .method {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 72px;
+        }
 
-    .check-list span {
-      width: 1.6rem;
-      height: 1.6rem;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 999px;
-      background: rgba(124, 199, 255, 0.16);
-      color: var(--accent);
-      font-size: 0.9rem;
-      margin-top: 0.05rem;
-    }
+        .method-item {
+            padding: 22px;
+            border: 1px solid var(--rule);
+            background: rgba(255, 252, 246, 0.28);
+        }
 
-    section {
-      padding: 1.6rem 0 4.25rem;
-    }
+        .method-item strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--forest);
+            font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 1rem;
-      margin-bottom: 1.75rem;
-    }
+        .method-item p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
+        .inquiries {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 32px;
+            align-items: end;
+            padding: 34px 0 0;
+            border-top: 1px solid var(--ink);
+        }
 
-    .card {
-      padding: 1.5rem;
-      height: 100%;
-    }
+        .inquiries h2 {
+            border: 0;
+            padding: 0;
+            margin-bottom: 12px;
+        }
 
-  .card p {
-  margin-top: 0.75rem;
-  margin-bottom: 0;
-}
+        .contact-link {
+            color: var(--ink);
+            font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+            font-size: 1.15rem;
+            text-decoration: none;
+        }
 
-    .card .price {
-      font-weight: 800;
-      color: var(--accent-2);
-      margin: 0.45rem 0 1rem;
-      font-size: 1rem;
-    }
+        .contact-link:hover,
+        .contact-link:focus {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 5px;
+        }
 
-    .tag {
-      display: inline-block;
-      padding: 0.35rem 0.6rem;
-      font-size: 0.78rem;
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 1rem;
-    }
+        .location {
+            display: block;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-top: 8px;
+        }
 
-    .service-list,
-    .simple-list {
-      padding-left: 1.1rem;
-      margin: 0.9rem 0 0;
-      color: var(--muted);
-    }
+        footer {
+            margin-top: 70px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            border-top: 1px solid var(--rule);
+            padding-top: 22px;
+        }
 
-    .service-list li,
-    .simple-list li {
-      margin-bottom: 0.5rem;
-    }
+        @media (max-width: 780px) {
+            .page {
+                padding: 28px 16px;
+            }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
+            .document {
+                padding: 36px 24px;
+            }
 
-    .quote {
-      padding: 1.5rem;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
+            .document::before {
+                inset: 10px;
+            }
 
-    .quote strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 0.7rem;
-    }
+            .masthead,
+            .positioning,
+            .method,
+            .inquiries {
+                grid-template-columns: 1fr;
+            }
 
-    .about-box {
-      padding: 1.65rem;
-    }
+            .classification {
+                text-align: left;
+            }
 
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 1.25rem;
-      align-items: stretch;
-    }
+            blockquote {
+                padding-left: 18px;
+                font-size: 1.08rem;
+            }
 
-    .contact-card {
-      padding: 1.6rem;
-    }
+            table,
+            thead,
+            tbody,
+            tr,
+            th,
+            td {
+                display: block;
+                width: 100%;
+            }
 
-    .contact-points {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: grid;
-      gap: 0.8rem;
-      color: var(--muted);
-    }
+            thead {
+                display: none;
+            }
 
-    .contact-points strong {
-      color: var(--text);
-    }
+            tr {
+                border-bottom: 1px solid var(--rule);
+                padding: 16px 0;
+            }
 
-    .footer {
-      padding: 1rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
+            td {
+                border: 0;
+                padding: 4px 0;
+            }
 
-    .footer a { color: var(--text); }
+            td:first-child {
+                width: 100%;
+                margin-bottom: 6px;
+            }
 
-    @media (max-width: 960px) {
-      .hero-grid,
-      .grid-3,
-      .two-col,
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
+            footer {
+                display: block;
+            }
+          
+          .header-content {
+              display: flex;
+              align-items: center;
+              gap: 1.5rem;
+          }
 
-      .section-head {
-        align-items: start;
-        flex-direction: column;
-      }
-    }
+        .knight-logo {
+            display: block;
+            max-height: 4rem;
+            width: auto;
+            filter: sepia(30%) contrast(1.1); /* Optional texture matching to the 'paper' theme */
+            opacity: 0.9;
+        }
 
-    @media (max-width: 680px) {
-      .nav {
-        flex-direction: column;
-        align-items: start;
-      }
 
-      .hero {
-        padding-top: 4rem;
-      }
-
-      .cta-row,
-      .nav-links {
-        width: 100%;
-      }
-
-      .button {
-        width: 100%;
-      }
-          .credibility-strip {
-      margin-top: 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .credibility-item {
-      padding: 1rem 1.1rem;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .credibility-item strong {
-      display: block;
-      color: var(--text);
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    @media (max-width: 960px) {
-      .credibility-strip {
-        grid-template-columns: 1fr;
-      }
-    }
-    }
-  </style>
+        .header-text h1 {
+            margin-top: -0.25rem;
+        }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand">
-        <div class="brand-mark">CSC</div>
-        <div class="brand-text">
-          Carty Systems Consulting
-          <small>Digital systems • AI workflows • business storytelling</small>
+    <div class="page">
+        <div class="document">
+<header class="masthead" aria-label="Site header">
+                <div class="header-content">
+                    <div class="header-text">
+                        <div class="eyebrow">Digital Privacy & Continuity</div>
+                        <h1>William Carty</h1>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section aria-label="Introduction">
+                    <p class="lede">I maintain a restricted list of private clients. I secure their records, organize their history, and ensure they are never locked out of their own lives.</p>
+                </section>
+
+                <section class="positioning" aria-label="Positioning statement">
+                        <p>I am not the "computer guy" called to fix a printer. I am a trusted advisor with 25 years of experience handling the complexity people usually ignore until something breaks. I work discreetly to organize and secure your archives, accounts, and access protocols—making sure they stay safe and available for the long term.</p>
+                </section>
+
+                <section class="ethics" aria-labelledby="ethics-heading">
+                    <h2 id="ethics-heading">Discretion</h2>
+                    <blockquote>
+I operate with total access to the most sensitive parts of a client’s life. In this role, discretion isn't a policy—it's the entire business. I have spent my career working in the background of high-stakes environments. I don't provide case studies, I don't use client names, and I don't seek credit. My value is in my silence and my ability to ensure that your private life remains exactly that: private.
+                    </blockquote>
+                </section>
+
+                <section class="deliverables" aria-labelledby="deliverables-heading">
+                    <h2 id="deliverables-heading">What I Handle</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Service Pillar</th>
+                                <th scope="col">Tangible Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>The Inventory</td>
+                                <td>A physical and digital ledger of every asset, key, account, and device in your estate.</td>
+                            </tr>
+                            <tr>
+                                <td>The Archive</td>
+                                <td>A hardened, local vault containing verified copies of your family’s records and history.</td>
+                            </tr>
+                            <tr>
+                                <td>Digital Hardening</td>
+                                <td>Implementation of private communication layers and secure online service access.</td>
+                            </tr>
+                            <tr>
+                                <td>Continuity of Access</td>
+                                <td>A protocol for estate attorneys and heirs to ensure your history survives a transition.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section aria-labelledby="method-heading">
+                    <h2 id="method-heading">Engagement</h2>
+                    <div class="positioning">
+<p>I work by referral. My client list is limited to ensure direct accountability and a durable knowledge of every system I manage.
+
+If you have been referred, please include the name of your referral in your inquiry.</p>
+                    </div>
+                </section>
+
+                <section class="inquiries" aria-label="Private inquiries">
+                    <div>
+                        <h2>Confidential Inquiries</h2>
+                        <span class="location">Referral preferred</span>
+                        <span class="location"><a href="mailto:william@cartysystems.com" class="contact-link">william@cartysystems.com</a></span>
+                        <span class="location">Bristol, Virginia</span>
+                    </div>
+                    <div class="classification" aria-label="Availability note">
+                        via Signal<br />
+                        <a href="https://signal.me/#eu/XwdJ0ju59o7nl543s7IROGJ-OW6C2yLyBnqkY8gGIj3S0EboA_5C8awk_kVMlCuw" target="_blank">@carty.82</a>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <span>&copy; 2026 William Carty. All rights reserved.</span>
+                <span>Digital Privacy & Continuity</span>
+            </footer>
         </div>
-      </a>
-<nav class="nav-links" aria-label="Primary">
-  <a href="#services">Services</a>
-  <a href="#who">Who I work with</a>
-  <a href="#problems">Problems</a>
-  <a href="#approach">Approach</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-</nav>
     </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Helping Organizations Build Better Systems</div>
-          <h1>Work smarter. Communicate clearly. Fix what’s slowing your team down.</h1>
-          <p>
-          Carty Systems Consulting helps organizations fix inefficient workflows, automate repetitive work, and turn scattered information into clear systems people actually use.
-          </p>
-          <p>
-            From workflow diagnostics and automation to internal documentation and workforce storytelling, the focus is simple: reduce friction, save time, and create systems that actually support the work.
-          </p>
-          <div class="credibility-strip">
-            <div class="credibility-item">
-              <strong>25+ years of experience</strong>
-              Systems administration, IT leadership, and workflow improvement.
-            </div>
-            <div class="credibility-item">
-              <strong>Practical, usable solutions</strong>
-              Built around real teams, real tools, and day-to-day operations.
-            </div>
-            <div class="credibility-item">
-              <strong>Southwest Virginia based</strong>
-              Serving manufacturers, nonprofits, and regional organizations.
-            </div>
-          </div>
-          <div class="cta-row">
-            <a class="button button-primary" href="#contact">Start a conversation</a>
-            <a class="button button-secondary" href="#services">View services</a>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Highlights">
-          <h3>What this looks like in practice</h3>
-          <ul class="check-list">
-            <li><span>✓</span><div>Simplify inefficient workflows and identify what can be automated.</div></li>
-            <li><span>✓</span><div>Use AI in practical ways for reporting, documentation, summaries, and repeatable tasks.</div></li>
-            <li><span>✓</span><div>Turn scattered information into clearer systems your team can actually use.</div></li>
-            <li><span>✓</span><div>Improve internal documentation, training, and external storytelling.</div></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-    <section id="who">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Who I work with</h2>
-            <p class="section-intro">
-              Carty Systems Consulting works with organizations that rely on complex workflows and need clearer systems, better information flow, and more practical communication.
-            </p>
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <h3>Typical clients include</h3>
-            <ul class="service-list">
-              <li>Manufacturers</li>
-              <li>Small and mid-sized businesses</li>
-              <li>Nonprofits</li>
-              <li>Workforce and economic development organizations</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>This is a good fit when</h3>
-            <ul class="service-list">
-              <li>Your team is dealing with scattered information and disconnected tools</li>
-              <li>Too much time is spent on repetitive administrative work</li>
-              <li>Documentation is weak, outdated, or hard to maintain</li>
-              <li>You need clearer communication internally or externally</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-        <section id="problems">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Typical problems I help solve</h2>
-            <p class="section-intro">
-              Many organizations know something in their systems isn’t working well, but it’s difficult to pinpoint exactly why. Common issues include:
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <ul class="check-list">
-            <li><span>✓</span><div>Teams spending hours each week on repetitive reports, summaries, or documentation</div></li>
-            <li><span>✓</span><div>Shared drives and digital files that are difficult to navigate or maintain</div></li>
-            <li><span>✓</span><div>Important knowledge that exists only in a few employees’ heads</div></li>
-            <li><span>✓</span><div>Processes that rely on manual steps that could be automated</div></li>
-            <li><span>✓</span><div>Difficulty explaining what the organization does to potential hires or partners</div></li>
-            <li><span>✓</span><div>Internal training that relies on informal knowledge instead of clear documentation</div></li>
-            <li><span>✓</span><div>Communication that feels scattered across too many tools and platforms</div></li>
-          </ul>
-        </div>
-        <div class="section-head">
-         <div>
-          <p class="section-intro">
-            Carty Systems Consulting helps identify the root causes of these problems and implement practical improvements that make work easier and more efficient.
-          </p>
-          </div>
-          </div>
-      </div>
-    </section>
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Core services</h2>
-            <p class="section-intro">
-              Clear offers designed to help organizations diagnose problems, improve workflows, and modernize communication.
-            </p>
-          </div>
-        </div>
-
-<div class="grid-3">
-  <article class="card">
-    <span class="tag">Entry Offer</span>
-    <h3>Digital Workflow &amp; Operations Diagnostic</h3>
-    <p class="price">Starting at $750</p>
-    <p class="muted">
-      A structured review of how your organization uses digital tools, manages information, and handles everyday workflows.
-    </p>
-    <p class="muted">
-      Many teams lose hours each week to inefficient processes, repetitive tasks, and unclear documentation. This diagnostic identifies those problems and provides a clear roadmap for improvement.
-    </p>
-    <p class="muted"><strong>Includes:</strong></p>
-    <ul class="service-list">
-      <li>Workflow and digital tool review</li>
-      <li>Identification of inefficiencies and bottlenecks</li>
-      <li>Automation and AI opportunities</li>
-      <li>Documentation and communication review</li>
-      <li>Written improvement roadmap with implementation priorities</li>
-    </ul>
-  </article>
-
-  <article class="card">
-    <span class="tag">Implementation</span>
-    <h3>AI Workflow Jumpstart</h3>
-    <p class="price">Starting at $2,000</p>
-    <p class="muted">
-      Practical implementation of AI tools that help your team work faster and reduce repetitive administrative work.
-    </p>
-    <p class="muted">
-      The focus is not hype or experimentation, but real workflow improvements that save time and make information easier to manage.
-    </p>
-    <p class="muted"><strong>Examples include:</strong></p>
-    <ul class="service-list">
-      <li>Automated meeting summaries and reporting workflows</li>
-      <li>AI-assisted documentation and SOP creation</li>
-      <li>Internal knowledge and information search systems</li>
-      <li>Communications drafting for newsletters and updates</li>
-      <li>Hands-on setup and training for staff adoption</li>
-    </ul>
-  </article>
-
-  <article class="card">
-    <span class="tag">Communication &amp; Media</span>
-    <h3>Workforce Storytelling &amp; Training Media</h3>
-    <p class="price">Starting at $2,500</p>
-    <p class="muted">
-      Clear, authentic media that helps organizations explain what they do, train employees, and attract the right people.
-    </p>
-    <p class="muted">
-      Many organizations struggle to communicate their work effectively. Short, well-produced media can make processes easier to understand and workplaces more visible to potential hires.
-    </p>
-    <p class="muted"><strong>Examples include:</strong></p>
-    <ul class="service-list">
-      <li>Employee interview videos</li>
-      <li>Recruiting and “day in the life” workplace clips</li>
-      <li>Internal training videos and process walkthroughs</li>
-      <li>Voiceover explainers for complex work or systems</li>
-      <li>Media for hiring pages, outreach, and workforce development</li>
-    </ul>
-  </article>
-</div>      </div>
-    </section>
-    <section id="approach">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>How I work</h2>
-            <p class="section-intro">
-              This isn’t consulting for the sake of presentations. Every engagement is focused on practical improvements that make a real difference in your day-to-day operations.
-            </p>
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="quote">
-            <strong>Start with the real problem.</strong>
-            Every engagement begins by understanding what is actually slowing the work down — whether that is a messy workflow, repetitive admin work, disconnected tools, weak documentation, or unclear communication.
-          </div>
-          <div class="quote">
-            <strong>Build improvements that fit the organization.</strong>
-            Better systems only matter if people will use them. Recommendations are grounded in the reality of your team, your tools, and your day-to-day operations.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>About</h2>
-          </div>
-        </div>
-        <div class="about-box card">
-          <p>
-            William Carty brings over 25 years of experience in systems administration, network management, and IT leadership.
-          </p>
-          <p>
-            Throughout his career, he has helped organizations solve practical problems that slow teams down: inefficient workflows, disconnected tools, weak documentation, and unclear communication.
-          </p>
-          <p>
-            In addition to deep technical experience, he brings hands-on expertise in audio, video, voiceover, and organizational storytelling—allowing Carty Systems Consulting to work at the intersection of technology, operations, and communication.
-          </p>
-          <p>
-            Based in Southwest Virginia, Carty Systems Consulting partners with manufacturers, small businesses, nonprofits, and regional organizations seeking practical, results-driven improvements.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container contact-wrap">
-        <div>
-          <h2>Let’s talk</h2>
-          <p class="section-intro">
-            If your organization is facing inefficient workflows, repetitive manual tasks, scattered information, or communication challenges—or if you want to attract and retain top talent—let’s start with a conversation.          </p>
-          <ul class="simple-list">
-            <li>Available for diagnostics, implementation projects, and scoped consulting engagements.</li>
-            <li>Based in Southwest Virginia.</li>
-            <li>Serving local and regional organizations.</li>
-          </ul>
-        </div>
-        <aside class="contact-card">
-          <h3>Contact</h3>
-          <p class="muted">Reach out to start a conversation about diagnostics, implementation, or a scoped consulting project.</p>
-<ul class="contact-points">
-  <li><strong>Email:</strong> <a href="mailto:william@cartysystems.com">william@cartysystems.com</a></li>
-  <li><strong>Website:</strong> <a href="https://cartysystems.com" target="_blank" rel="noopener noreferrer">cartysystems.com</a></li>
-  <li><strong>Location:</strong> Bristol, Virginia</li>
-</ul>
-<div class="cta-row">
-  <a class="button button-primary" href="mailto:william@cartysystems.com">Email now</a>
-</div>        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      © <span id="year"></span> Carty Systems Consulting. All rights reserved.
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
